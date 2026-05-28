@@ -1,4 +1,4 @@
-package traductorfrases.api.dominio.entidades;
+package traduccionfrases.api.dominio.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,8 +13,8 @@ import jakarta.persistence.Table;
 public class Frase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_frase")
-    @SequenceGenerator(name = "secuencia_frase", sequenceName = "secuencia_frase", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "frase_id_seq")
+    @SequenceGenerator(name = "frase_id_seq", sequenceName = "frase_id_seq", allocationSize = 1)
     @Column(name = "id")
     private int id;
 
@@ -45,5 +45,5 @@ public class Frase {
         this.texto = texto;
     }
 
-
+    
 }

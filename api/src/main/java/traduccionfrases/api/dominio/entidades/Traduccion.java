@@ -1,4 +1,4 @@
-package traductorfrases.api.dominio.entidades;
+package traduccionfrases.api.dominio.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -58,5 +58,7 @@ public class Traduccion {
     public void setTexto(String texto) {
         this.texto = texto;
     }
+
+    
 
 }

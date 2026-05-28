@@ -1,4 +1,4 @@
-package traductorfrases.api.dominio.entidades;
+package traduccionfrases.api.dominio.entidades;
 
 public class TraduccionId {
 
@@ -27,6 +27,21 @@ public class TraduccionId {
 
     public void setFrase(int frase) {
         this.frase = frase;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        TraduccionId that = (TraduccionId) o;
+        return idioma == that.idioma && frase == that.frase;
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(idioma, frase);
     }
 
 }
