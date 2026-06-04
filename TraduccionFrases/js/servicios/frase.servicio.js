@@ -6,7 +6,7 @@ app.service("FraseServicio", function($http) {
     }
 
     this.obtener = (id) => {
-        return $http.get(`URL${id}`).then(respuesta => respuesta.data);
+        return $http.get(`${URL}${id}`).then(respuesta => respuesta.data);
     }
 
     this.agregar = (frase) => {
@@ -18,6 +18,6 @@ app.service("FraseServicio", function($http) {
     }
 
     this.eliminar = (id) => {
-        return $http.delete(`URL${id}`).then(respuesta => respuesta.data);
+        return $http.delete(`${URL}${id}`).then(respuesta => respuesta.data);
     }
 });
