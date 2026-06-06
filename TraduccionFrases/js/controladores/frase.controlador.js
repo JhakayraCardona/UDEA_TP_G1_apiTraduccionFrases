@@ -78,7 +78,9 @@ app.controller("FraseControlador", function ($scope, FraseServicio, TraduccionSe
     }
 
     $scope.eliminarTraduccion = (idIdioma, idFrase) => {
-
+        TraduccionServicio.eliminar(idIdioma, idFrase).then(() => {
+            $scope.cargarTraduccionesDeFrase($scope.fraseSeleccionada.id);
+        });
     }
 
     $scope.guardarTraduccion = () => {

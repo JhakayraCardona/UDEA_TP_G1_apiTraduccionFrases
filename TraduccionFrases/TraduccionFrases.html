@@ -24,6 +24,7 @@
 
     <!-- Controlador -->
     <script src="js/controladores/frase.controlador.js"></script>
+    <script src="js/controladores/idioma.controlador.js"></script>
     <script src="js/controladores/app.controlador.js"></script>
 </head>
 
@@ -165,6 +166,59 @@
                                     </table>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="vistaActual === 'idiomas'" ng-controller="IdiomaControlador">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                        <h2>Gestión de Idiomas</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-primary text-white">
+                                    {{ frmIdioma.id ? "Editando Idioma" : "Nuevo Idioma" }}
+                                </div>
+                                <div class="card-body">
+                                    <form ng-submit="guardar()">
+                                        <div class="mb-3">
+                                            <label class="form-label">Nombre del Idioma</label>
+                                            <input type="text" class="form-control" ng-model="frmIdioma.nombre"
+                                                placeholder="Ej: Alemán" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Guardar</button>
+                                        <button type="button" class="btn btn-secondary" ng-if="frmIdioma.id"
+                                            ng-click="limpiarFrmIdioma()">Cancelar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 mb-4">
+                            <table class="table table-striped table-hover align-middle border">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Idioma</th>
+                                        <th style="width: 15%" class="text-center">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="idioma in idiomas">
+                                        <td>{{ idioma.id }}</td>
+                                        <td>{{ idioma.nombre }}</td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-sm btn-outline-warning py-0 me-1"
+                                                ng-click="editar(idioma)">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger py-0"
+                                                ng-click="eliminar(idioma.id)"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
